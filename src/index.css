@@ -1,0 +1,27 @@
+@import url("https://v1.fontapi.ir/css/Vazir");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bg-size{
+  background-size: 100%;
+}
+
+@layer base {
+  * {
+    direction: rtl;
+  }
+  body {
+    @apply overflow-hidden font-primary bg-white;
+  }
+  .register{
+    @apply bg-register bg-no-repeat bg-cover bg-center h-[40vh] lg:h-full
+  }
+  .label{
+    @apply text-xl
+  }
+  .input{
+    @apply p-2 rounded-md outline-none text-primary text-lg
+  }
+}
