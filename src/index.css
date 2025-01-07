@@ -19,7 +19,7 @@
     @apply bg-register bg-no-repeat bg-cover bg-center h-[40vh] lg:h-full
   }
   .label{
-    @apply text-xl
+    @apply text-lg
   }
   .input{
     @apply p-2 rounded-md outline-none text-primary text-lg
