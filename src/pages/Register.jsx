@@ -29,7 +29,7 @@ const Register = () => {
       const res = await axios.post("/register", data);
       if (res.data.error) {
         setError(res.data.error);
-        console.log(data);
+        console.log(res.data.error);
       } else {
         Swal.fire({
           icon: "success",
@@ -67,6 +67,7 @@ const Register = () => {
             <h2 className="font-extrabold text-2xl border-b-2 border-accent w-full text-center py-4">
               ثبت نام کنید
             </h2>
+            {error && <h2 className="text-red-400 pt-3">{error}</h2>}
             <form onSubmit={formik.handleSubmit} className="w-full">
               <div className="flex flex-col gap-y-3 p-2">
                 <label className="label">نام شما</label>
@@ -118,7 +119,7 @@ const Register = () => {
                 <input
                   name="confPassword"
                   className="input"
-                  type="text"
+                  type="password"
                   value={formik.values.confPassword}
                   onChange={formik.handleChange("confPassword")}
                   onBlur={formik.handleBlur("confPassword")}
