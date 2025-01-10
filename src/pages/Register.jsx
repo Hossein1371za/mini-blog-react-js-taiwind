@@ -29,7 +29,6 @@ const Register = () => {
       const res = await axios.post("/register", data);
       if (res.data.error) {
         setError(res.data.error);
-        console.log(res.data.error);
       } else {
         Swal.fire({
           icon: "success",

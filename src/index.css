@@ -18,6 +18,9 @@
   .register{
     @apply bg-register bg-no-repeat bg-cover bg-center h-[40vh] lg:h-full
   }
+  .login{
+    @apply bg-login bg-no-repeat bg-cover bg-center h-[40vh] lg:h-full
+  }
   .label{
     @apply text-lg
   }
