@@ -1,33 +1,73 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-
-const links = [
-  { path: "/", name: "خانه" },
-  { path: "/register", name: "ثبت نام" },
-  { path: "/login", name: "ورود" },
-];
+import React, { useState } from "react";
+import { NavLink,useNavigate } from "react-router-dom";
 
 const Nav = ({ containerstyles, linkstyles }) => {
-  
-    const location = useLocation();
-    const [pathName, setPathName] = useState(location.pathname);
-    useEffect(() => {
-        setPathName(location.pathname);
-      }, [location.pathname]);
+  const navigate = useNavigate()
+  const logout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
     <nav className={`${containerstyles}`}>
       <ul className={`${linkstyles}`}>
-        {links.map((link, index) => (
-          <Link 
-            className={` ${
-              link.path === pathName && "text-[#87ff99]"
-            }`}
-            key={index}
-            to={link.path}
+        {
+          localStorage.getItem("user_name") ?  (<>
+            <li>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "text-secondary" : ""
+            }
+            to="/"
           >
-            {link.name}
-          </Link>
-        ))}
+            خانه
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "text-secondary" : ""
+            }
+            to="/blog"
+          >
+            ارسال بلاک
+          </NavLink>
+        </li>
+        <button onClick={logout}>خروج</button>
+          </>): (<>
+          <li>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "text-secondary" : ""
+            }
+            to="/"
+          >
+            خانه
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "text-secondary" : ""
+            }
+            to="/register"
+          >
+            ثبت نام
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "text-secondary" : ""
+            }
+            to="/login"
+          >
+            ورود
+          </NavLink>
+        </li>
+          </>)
+        }
       </ul>
     </nav>
   );

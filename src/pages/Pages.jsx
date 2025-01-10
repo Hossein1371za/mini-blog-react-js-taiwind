@@ -5,6 +5,8 @@ import Home from './Home'
 import Login from './Login'
 import Register from './Register'
 import axios from "axios";
+import Blog from './Blog'
+import Logout from './Logout'
 
 
 axios.defaults.baseURL = "http://localhost:8000/";
@@ -20,6 +22,8 @@ const Pages = () => {
         <Route path='/' element={<Home/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/blog' element={<Blog/>} />
+        <Route path='/logout' element={<Logout/>} />
     </Routes>
     </BrowserRouter>
   )
