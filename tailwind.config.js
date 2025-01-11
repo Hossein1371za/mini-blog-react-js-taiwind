@@ -20,7 +20,8 @@ export default {
       },
       backgroundImage: {
         login : "url('./assets/images/login.svg')",
-        register :"url('./assets/images/register.svg')"
+        register :"url('./assets/images/register.svg')",
+        blog :"url('./assets/images/blog.jpg')",
       },
       container: {
         center: true,
