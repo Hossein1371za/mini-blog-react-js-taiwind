@@ -29,7 +29,7 @@ const Nav = ({ containerstyles, linkstyles }) => {
             className={({ isActive, isPending }) =>
               isPending ? "" : isActive ? "text-secondary" : ""
             }
-            to="/blog"
+            to="/create"
           >
             ارسال بلاک
           </NavLink>
