@@ -1,27 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [ "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      primary: 'vazir',
+      primary: "vazir",
     },
     screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1192px',
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1192px",
     },
     extend: {
       colors: {
-        primary: '#0E1112',
-        secondary: '#87ff99',
-        accent: '#EEF7F9',
+        primary: "#0E1112",
+        secondary: "#87ff99",
+        accent: "#EEF7F9",
       },
       backgroundImage: {
-        login : "url('./assets/images/login.svg')",
-        register :"url('./assets/images/register.svg')",
-        blog :"url('./assets/images/blog.jpg')",
+        login: "url('./assets/images/login.svg')",
+        register: "url('./assets/images/register.svg')",
+        blog: "url('./assets/images/blog.jpg')",
+        home: "url('./assets/images/home.svg')",
       },
       container: {
         center: true,
@@ -33,5 +33,4 @@ export default {
     },
   },
   plugins: [],
-}
-
+};

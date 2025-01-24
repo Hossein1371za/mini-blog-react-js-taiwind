@@ -15,7 +15,6 @@ const Create = () => {
   const [file, setFile] = useState([]);
   const [preview, setPreview] = useState("");
 
-
   const loadImage = (e) => {
     const image = e.target.files[0];
     setFile(image);
@@ -55,7 +54,7 @@ const Create = () => {
     initialValues: {
       title: "",
       desc: "",
-      file:null,
+      file: "",
       userId: user_id,
     },
     onSubmit: (values) => {
@@ -72,11 +71,11 @@ const Create = () => {
 
   return (
     <div className="bg-blog bg-no-repeat bg-cover bg-center h-screen text-accent scroll-auto">
-      <div className="flex flex-col items-center h-full">
+      <div className="container flex flex-col items-center h-full">
         <h1 className="text-2xl font-extrabold pb-10 mt-8">پستت رو بساز!!!</h1>
         {error && <h2 className="text-red-400 text-xl mb-4">{error}</h2>}
         <form
-          className="bg-primary p-5 rounded-md flex flex-col gap-y-3"
+          className="bg-primary rounded-md flex flex-col gap-y-4 w-full max-w-[500px] p-5"
           onSubmit={formik.handleSubmit}
         >
           <div className="flex flex-col gap-y-3 relative">

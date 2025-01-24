@@ -13,7 +13,7 @@
     direction: rtl;
   }
   body {
-    @apply overflow-hidden font-primary bg-white;
+    @apply font-primary bg-white;
   }
   .register{
     @apply bg-register bg-no-repeat bg-cover bg-center h-[40vh] lg:h-full
@@ -26,5 +26,8 @@
   }
   .input{
     @apply p-2 rounded-md outline-none text-primary text-lg
+  }
+  .home{
+    @apply hidden md:flex bg-home bg-no-repeat bg-contain bg-center h-[250px] lg:h-[500px] w-full
   }
 }

@@ -5,7 +5,6 @@ import Home from './Home'
 import Login from './Login'
 import Register from './Register'
 import axios from "axios";
-import Logout from './Logout'
 import Create from './Create'
 
 
@@ -23,7 +22,6 @@ const Pages = () => {
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/create' element={<Create/>} />
-        <Route path='/logout' element={<Logout/>} />
     </Routes>
     </BrowserRouter>
   )
