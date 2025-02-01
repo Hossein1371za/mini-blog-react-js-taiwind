@@ -24,50 +24,71 @@ const Create = () => {
   const user_id = localStorage.getItem("user_id");
   const navigate = useNavigate();
 
+  
+  
   const handleSubmit = async (data) => {
-    const formData = new FormData();
-    formData.append("file", data.file);
-    formData.append("title", data.title);
-    formData.append("desc", data.desc);
-    formData.append("userId", data.userId);
-    try {
-      const res = await axios.post("/posts", formData);
-      if (res.data.error) {
-        setError(res.data.error);
-      } else {
-        Swal.fire({
-          icon: "success",
-          title: "تبریک میگم!",
-          text: res.data.message,
-          showConfirmButton: true,
-          confirmButtonText: "تایید!",
-          timer: 5000,
-        });
-        navigate("/");
+      const formData = new FormData();
+      formData.append("file", data.file);
+      formData.append("title", data.title);
+      formData.append("desc", data.desc);
+      formData.append("userId", data.userId);
+      console.log('Form Data:', formData);
+      for (let [key, value] of formData.entries()) {
+          if(key === "file") {
+              console.log(`${key}: ${value.name}`); // نمایش نام فایل
+          } else {
+              console.log(`${key}: ${value}`);
+          }
       }
-    } catch (error) {
-      console.log(error);
-    }
+      try {
+        const res = await axios.post("/posts", formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        if (res.data.error) {
+          setError(res.data.error);
+        } else {
+          Swal.fire({
+            icon: "success",
+            title: "تبریک میگم!",
+            text: res.data.message,
+            showConfirmButton: true,
+            confirmButtonText: "تایید!",
+            timer: 5000,
+          });
+          navigate("/");
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        if (error.response) {
+          console.error('Server responded with:', error.response.data);
+        }
+      }
   };
+  
 
   const formik = useFormik({
     initialValues: {
       title: "",
       desc: "",
-      file: "",
+      file: null,
       userId: user_id,
     },
     onSubmit: (values) => {
       const data = {
         title: values.title,
         desc: values.desc,
-        file: file,
+        file: values.file, 
         userId: user_id,
       };
       handleSubmit(data);
     },
     validationSchema: formSchema,
   });
+  const handleFileChange = (event) => {
+    formik.setFieldValue("file", event.currentTarget.files[0]);
+  };
 
   return (
     <div className="bg-blog bg-no-repeat bg-cover bg-center h-screen text-accent scroll-auto">
@@ -83,7 +104,7 @@ const Create = () => {
             <input
               className="input bg-accent"
               type="file"
-              onChange={loadImage}
+              onChange={handleFileChange}
               name="image"
             />
             {preview ? (

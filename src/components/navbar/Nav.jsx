@@ -34,6 +34,16 @@ const Nav = ({ containerstyles, linkstyles }) => {
             ارسال بلاک
           </NavLink>
         </li>
+        <li>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending ? "" : isActive ? "text-secondary" : ""
+          }
+          to="/blog/myblog"
+        >
+           پست های شما
+        </NavLink>
+      </li>
         <button onClick={logout}>خروج</button>
           </>): (<>
           <li>
