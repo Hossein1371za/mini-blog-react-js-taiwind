@@ -35,7 +35,7 @@ const Home = () => {
                   key={index}
                   className="flex flex-col justify-center items-center gap-y-7 p-3 border-2 border-[#5f5c5c] rounded-md"
                 >
-                  <img src={item.url} alt="" className="w-auto" />
+                  <img src={item.url} alt="" className="w-auto max-h-[300px]" />
                   <div className="flex items-center justify-between border-1 border-b w-full border-[#363535] ">
                     <small className="text-lg">
                       نویسنده : {item.user.name}

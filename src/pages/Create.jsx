@@ -32,7 +32,7 @@ const Create = () => {
       formData.append("title", data.title);
       formData.append("desc", data.desc);
       formData.append("userId", data.userId);
-      console.log('Form Data:', formData);
+
       for (let [key, value] of formData.entries()) {
           if(key === "file") {
               console.log(`${key}: ${value.name}`); // نمایش نام فایل
