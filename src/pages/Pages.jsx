@@ -11,6 +11,7 @@ import Detailes from "../components/Detailes";
 import Update from "./Update";
 import AuthCheck from "../components/authcheck/AuthCheck";
 import Protected from "../components/authcheck/Protected";
+import PageNotFound from "../components/PageNotFound";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -33,6 +34,7 @@ const Pages = () => {
           <Route path="/blog/update/:id" element={<Update />} />
         </Route>
         <Route path="/blogdetails/:id" element={<Detailes />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
