@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Skelton from "../components/skeletton/Skelton";
 
 const Home = () => {
   const [data, setData] = useState(null);
+
   const [visible, setVisibel] = useState(3);
 
   const showMore = () => {

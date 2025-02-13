@@ -5,7 +5,7 @@ import {
   BsFillEmojiLaughingFill,
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import swal from "sweetalert2"
+import swal from "sweetalert2";
 
 const MyBlog = () => {
   const [data, setData] = useState([]);
@@ -24,22 +24,22 @@ const MyBlog = () => {
     }
   };
 
-  const handleDelete =async (id)=>{
+  const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`/posts/${id}`)
-    swal.fire({
-      icon: "success",
-      title: "تبریک میگم!",
-      text: res.data.message,
-      showConfirmButton: true,
-      confirmButtonText: "تایید!",
-      timer: 5000,
-    });
-    loadData()
+      const res = await axios.delete(`/posts/${id}`);
+      swal.fire({
+        icon: "success",
+        title: "تبریک میگم!",
+        text: res.data.message,
+        showConfirmButton: true,
+        confirmButtonText: "تایید!",
+        timer: 5000,
+      });
+      loadData();
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div>
@@ -58,7 +58,7 @@ const MyBlog = () => {
                     alt="."
                     className=" h-[300px] lg:w-[350px] lg:h-[350px] shadow-md"
                   />
-                  <Link to="/" className="absolute right-3 bottom-3">
+                  <Link to={`/blog/update/${item.id}`} className="absolute right-3 bottom-3">
                     <BsFillEmojiLaughingFill className="text-green-500 hover:text-green-600 transition-all text-[40px]" />
                   </Link>
                   <span
@@ -68,12 +68,19 @@ const MyBlog = () => {
                     <BsFillEmojiNeutralFill className="text-red-400 hover:text-red-500 transition-all text-[40px]" />
                   </span>
                 </div>
-                <div className="text-center items-center bg-slate-300 w-[300px] p-2 lg:w-[350px] my-2 rounded-md">
+                <div className="text-center items-center bg-slate-300 w-[300px] p-2  my-2 rounded-md">
                   <h3 className="text-lg font-bold text-primary/80">
                     نویسنده : {item.user.name}
                   </h3>
                   <p className="text-primary/70">{item.title}</p>
                 </div>
+                <Link
+                  to={`/blogdetails/${item.id}`}
+                  className="w-[50%] my-3 p-3 bg-primary rounded-md text-accent text-center"
+                  state={item}
+                >
+                  مشاهده پست
+                </Link>
               </div>
             </div>
           ))}

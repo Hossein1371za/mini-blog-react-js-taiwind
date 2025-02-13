@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -33,13 +33,7 @@ const Create = () => {
       formData.append("desc", data.desc);
       formData.append("userId", data.userId);
 
-      for (let [key, value] of formData.entries()) {
-          if(key === "file") {
-              console.log(`${key}: ${value.name}`); // نمایش نام فایل
-          } else {
-              console.log(`${key}: ${value}`);
-          }
-      }
+
       try {
         const res = await axios.post("/posts", formData, {
           headers: {

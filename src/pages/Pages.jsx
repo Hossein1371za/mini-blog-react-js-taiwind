@@ -8,6 +8,7 @@ import axios from "axios";
 import Create from "./Create";
 import MyBlog from "./MyBlog";
 import Detailes from "../components/Detailes";
+import Update from "./Update";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -24,6 +25,7 @@ const Pages = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/create" element={<Create />} />
         <Route path="/blog/myblog" element={<MyBlog />} />
+        <Route path="/blog/update/:id" element={<Update/>} />
         <Route path="/blogdetails/:id" element={<Detailes/>} />
       </Routes>
     </BrowserRouter>
