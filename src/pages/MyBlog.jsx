@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BsFillEmojiNeutralFill,
   BsFillEmojiLaughingFill,
@@ -44,7 +44,7 @@ const MyBlog = () => {
   return (
     <div>
       <div className="home"></div>
-      <div className="container mx-auto my-5">
+      <div className="container mx-auto my-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map((item) => (
             <div

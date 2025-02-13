@@ -9,6 +9,8 @@ import Create from "./Create";
 import MyBlog from "./MyBlog";
 import Detailes from "../components/Detailes";
 import Update from "./Update";
+import AuthCheck from "../components/authcheck/AuthCheck";
+import Protected from "../components/authcheck/Protected";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
@@ -21,12 +23,16 @@ const Pages = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/create" element={<Create />} />
-        <Route path="/blog/myblog" element={<MyBlog />} />
-        <Route path="/blog/update/:id" element={<Update/>} />
-        <Route path="/blogdetails/:id" element={<Detailes/>} />
+        <Route element={<AuthCheck />}>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+        <Route element={Protected}>
+          <Route path="/create" element={<Create />} />
+          <Route path="/blog/myblog" element={<MyBlog />} />
+          <Route path="/blog/update/:id" element={<Update />} />
+        </Route>
+        <Route path="/blogdetails/:id" element={<Detailes />} />
       </Routes>
     </BrowserRouter>
   );
