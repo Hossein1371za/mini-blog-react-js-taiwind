@@ -29,6 +29,16 @@ const Nav = ({ containerstyles, linkstyles }) => {
             className={({ isActive, isPending }) =>
               isPending ? "" : isActive ? "text-secondary" : ""
             }
+            to="/search"
+          >
+            جستوجو
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "text-secondary" : ""
+            }
             to="/create"
           >
             ارسال بلاک
@@ -56,6 +66,7 @@ const Nav = ({ containerstyles, linkstyles }) => {
             خانه
           </NavLink>
         </li>
+        
         <li>
           <NavLink
             className={({ isActive, isPending }) =>

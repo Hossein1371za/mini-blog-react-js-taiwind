@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import swal from "sweetalert2";
 import { useParams } from "react-router-dom";
@@ -9,7 +9,11 @@ const Comments = () => {
   const { id } = useParams();
   let user_id = JSON.parse(localStorage.getItem("user_id"));
 
-
+  const getComment = async ()=>{
+    await axios.get(`/comments/${id}`).then((res)=>{
+      setComment(res.data)
+    })
+  }
   useEffect(() => {
     getComment();
   }, []);
@@ -51,13 +55,10 @@ const Comments = () => {
             showConfirmButton: true,
             confirmButtonText: "تایید!",
         });
+        console.log(error);
     }
 };
-const getComment = async ()=>{
-  await axios.get(`/comments/${id}`).then((res)=>{
-    setComment(res.data)
-  })
-}
+
 
   return (
     <div className="flex flex-col items-center gap-y-5">
